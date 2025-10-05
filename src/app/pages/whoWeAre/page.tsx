@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function WhoWeArePaeg() {
   return (
-    <div className="flex flex-col mt-40 items-center gap-10">
+    <div className="flex flex-col py-10 mt-20 lg:mt-40 items-center gap-10">
       <div className="flex flex-col gap-5 items-center">
         <h1 className="text-4xl font-bold">Quem Somos?</h1>
         <Image
@@ -16,7 +16,7 @@ export default function WhoWeArePaeg() {
         />
       </div>
 
-      <p className="w-1/2">
+      <p className="w-3/4 lg:w-1/2">
         Bem-vindo à Igreja Batista Renovo de Davi! Somos uma comunidade cristã
         que, há mais de uma década, tem sido um ponto de encontro para famílias
         e amigos que desejam crescer na fé e viver em comunhão. Nascemos do

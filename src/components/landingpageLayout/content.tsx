@@ -26,17 +26,21 @@ export function ContentComponent() {
 
   return (
     <div className="bg-white h-[1100px] text-black flex flex-col px-10 justify-center items-center">
-      <h1 className="text-4xl font-bold">Não perca nossos Conteúdos!</h1>
+      <h1 className="text-3xl text-center lg:text-4xl font-bold">
+        Não perca nossos Conteúdos!
+      </h1>
 
-      <div className="grid grid-cols-2 mt-20 gap-5 *:hover:scale-105 *:transition-all">
+      <div className="grid md:grid-cols-2 mt-20 gap-5 *:hover:scale-105 *:transition-all">
         {contents.map((content, index) => (
           <div key={index}>
-            <Card className="w-[400px] h-[300px]">
+            <Card className="w-[350px] md:w-[400px] md:h-[300px]">
               <CardHeader className="text-center">
-                <CardTitle className="text-3xl">{content.title}</CardTitle>
+                <CardTitle className="text-2xl lg:text-3xl">
+                  {content.title}
+                </CardTitle>
                 <CardDescription>Venha com sua familia!</CardDescription>
               </CardHeader>
-              <CardContent className="flex h-[250px] gap-5 flex-col justify-center items-center">
+              <CardContent className="flex h-[160px] gap-5 flex-col justify-center items-center">
                 <div className="text-center w-full flex flex-col items-center">
                   <h1 className="text-2xl font-semibold">
                     {content.contentTilte}

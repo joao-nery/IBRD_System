@@ -45,9 +45,9 @@ export default function ContatsPage() {
     <div className="flex flex-col mt-20 items-center">
       <h1 className="text-4xl font-bold">Nossos Contatos</h1>
 
-      <section className="mt-10 flex ">
-        <div className="border-1 p-10 w-[500px] shadow-xl rounded-2xl">
-          <h2 className="text-2xl font-semibold text-center">
+      <section className="mt-10 flex">
+        <div className="border-1 p-10 w-[380px] lg:w-[500px] shadow-xl rounded-2xl">
+          <h2 className="text-xl lg:text-2xl font-semibold text-center">
             Contate-nos - Fale com a gente
           </h2>
 

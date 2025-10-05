@@ -17,7 +17,9 @@ export function TitleHeroComponent() {
   return (
     <div className="h-max bg-neutral-950 ">
       <div className="flex justify-center px-10">
-        <Carousel plugins={[plugin.current]} className=" w-full max-w-[1000px]">
+        <Carousel
+          plugins={[plugin.current]}
+          className="max-w-7xl lg:max-w-[1000px]">
           <CarouselContent>
             <CarouselItem>
               <Image

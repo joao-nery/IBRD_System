@@ -1,10 +1,10 @@
 export default function VisionPage() {
   return (
-    <div className="flex flex-col mt-30 items-center">
-      <h1 className="text-3xl font-bold">
+    <div className="flex flex-col py-10 mt-20 lg:mt-30 items-center">
+      <h1 className="text-2xl lg:text-3xl text-center font-bold">
         Nosso Propósito: Visão, Missão e Valores
       </h1>
-      <p className="mt-5 w-1/2">
+      <p className="mt-5 w-3/4 lg:w-1/2">
         Somos uma igreja guiada por um propósito claro, com o objetivo de
         glorificar a Deus e abençoar vidas. Tudo o que fazemos é fundamentado
         nos princípios da Palavra de Deus, que é a nossa bússola.
@@ -12,7 +12,7 @@ export default function VisionPage() {
 
       <h2 className="text-2xl font-bold mt-10">Nossa Visão</h2>
 
-      <h2 className="w-1/2 mt-5">
+      <h2 className="w-3/4 lg:w-1/2 mt-5">
         {" "}
         Ser uma igreja relevante em nossa cidade, reconhecida como um lugar de
         renovo espiritual, transformação de vidas e adoração sincera a Deus,
@@ -20,7 +20,7 @@ export default function VisionPage() {
         Nossa Missão Nossa missão é colocar nossa visão em prática através de
         quatro pilares essenciais:
       </h2>
-      <ul className="w-1/2 list-disc *:ml-10">
+      <ul className="w-3/4 lg:w-1/2 list-disc *:ml-7">
         <li className="mt-5">
           <span className="font-bold">Adorar a Deus:</span> Celebrar a grandeza
           de Deus com alegria e sinceridade em nossos cultos e em nosso viver
