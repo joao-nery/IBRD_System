@@ -24,13 +24,13 @@ export default function WhoWeArePaeg() {
         somos uma família que continua a crescer, unida pelo amor a Jesus
         Cristo.
         <br /> <br />
-        O que significa "Renovo de Davi"? Nosso nome é uma expressão de nossa
-        fé. Ele vem de uma promessa bíblica que aponta para Jesus como o
-        "Renovo", aquele que traz uma nova aliança, restauração e um futuro de
-        esperança. Para nós, isso significa que em Cristo sempre há a chance de
-        um novo começo, de ter a vida renovada pela Sua graça. O que você vai
-        encontrar aqui? Ao nos visitar, você não encontrará apenas um prédio,
-        mas um ambiente vibrante e alegre.
+        O que significa Renovo de Davi? Nosso nome é uma expressão de nossa fé.
+        Ele vem de uma promessa bíblica que aponta para Jesus como o Renovo,
+        aquele que traz uma nova aliança, restauração e um futuro de esperança.
+        Para nós, isso significa que em Cristo sempre há a chance de um novo
+        começo, de ter a vida renovada pela Sua graça. O que você vai encontrar
+        aqui? Ao nos visitar, você não encontrará apenas um prédio, mas um
+        ambiente vibrante e alegre.
         <br /> <br />
         Somos pessoas reais, com histórias diferentes, que se reúnem para
         celebrar, aprender da Bíblia, orar uns pelos outros e construir amizades
