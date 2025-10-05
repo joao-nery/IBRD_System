@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Website da Igreja Batista Renovo de Davi
 
-## Getting Started
+Este é o repositório oficial do site da Igreja Batista Renovo de Davi, localizada em Betim/MG. O projeto foi desenvolvido para ser um portal de comunicação, apresentando a visão da igreja, horários de cultos, localização e formas de contato.
 
-First, run the development server:
+<!-- **[➡️ Acesse o site aqui!](https://URL_DO_SEU_SITE_NA_VERCEL.app)** _(Substitua o link acima pela URL final do seu site quando estiver no ar)_ -->
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Funcionalidades Principais
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Página Inicial:** Uma visão geral e acolhedora da igreja.
+- **Quem Somos:** Apresenta a história e a identidade da comunidade.
+- **Nossa Visão:** Detalha a missão, visão e valores da igreja.
+- **Horários dos Cultos:** Informações claras sobre os dias e horários das reuniões.
+- **Localização:** Mapa interativo integrado com o Google Maps para facilitar a chegada.
+- **Contato:** Formulário ou informações para os visitantes entrarem em contato.
+- **Design Responsivo:** Totalmente funcional em celulares, tablets e desktops.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🚀 Tecnologias Utilizadas
 
-To learn more about Next.js, take a look at the following resources:
+- **Framework:** [Next.js](https://nextjs.org/)
+- **Linguagem:** JavaScript / TypeScript
+- **Estilização:** (Tailwind CSS)
+- **Hospedagem:** [Vercel](https://vercel.com/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 👨‍💻 Autor
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **[João Nery]** - [Seu GitHub](https://github.com/joao_nery)
