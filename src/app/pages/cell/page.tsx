@@ -23,21 +23,21 @@ export default function CellsPage() {
   ];
 
   return (
-    <div className="flex h-screen justify-center -mt-20 flex-col items-center">
-      <h1 className="text-4xl font-bold">Nossas Células</h1>
-      <p className="text-2xl text-gray-500">
+    <div className="flex h-screen justify-center lg:-mt-20 flex-col items-center">
+      <h1 className="text-2xl lg:text-4xl font-bold">Nossas Células</h1>
+      <p className="text-lg lg:text-2xl text-gray-500">
         Procure a célula mais próxima de sua casa!
       </p>
 
-      <section className="mt-20 grid grid-cols-2 gap-5">
+      <section className="mt-10 lg:mt-20 grid lg:grid-cols-2 gap-5">
         {addressArray.map((neighborhood, index) => {
           const encodedAddress = encodeURIComponent(neighborhood.address);
           const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
           return (
             <div key={index}>
-              <Card className="w-[500px]">
+              <Card className="w-[300px] lg:w-[500px]">
                 <CardHeader className="text-center">
-                  <CardTitle className="text-3xl">
+                  <CardTitle className="text-xl lg:text-3xl">
                     {neighborhood.title}
                   </CardTitle>
                   <CardDescription>Traga sua familia!</CardDescription>
