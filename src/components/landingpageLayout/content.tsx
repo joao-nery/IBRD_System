@@ -30,7 +30,7 @@ export function ContentComponent() {
         Não perca nossos Conteúdos!
       </h1>
 
-      <div className="grid md:grid-cols-2 mt-20 gap-5 *:hover:scale-105 *:transition-all">
+      <div className="grid lg:grid-cols-2 mt-20 gap-5 *:hover:scale-105 *:transition-all">
         {contents.map((content, index) => (
           <div key={index}>
             <Card className="w-[350px] md:w-[400px] md:h-[300px]">

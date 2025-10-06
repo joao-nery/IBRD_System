@@ -1,7 +1,17 @@
+import Image from "next/image";
+
 export default function VisionPage() {
   return (
-    <div className="flex flex-col py-10 mt-20 lg:mt-30 items-center">
-      <h1 className="text-2xl lg:text-3xl text-center font-bold">
+    <div className="flex flex-col py-15 lg:mt-20 items-center">
+      <Image
+        src={"/logo.jpg"}
+        width={100}
+        height={0}
+        className="rounded-full  hover:scale-105 transition-all"
+        alt="Localization image"
+      />
+
+      <h1 className="text-2xl w-3/4 mt-10 lg:text-3xl text-center font-bold">
         Nosso Propósito: Visão, Missão e Valores
       </h1>
       <p className="mt-5 w-3/4 lg:w-1/2">

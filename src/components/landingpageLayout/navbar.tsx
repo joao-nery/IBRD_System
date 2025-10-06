@@ -18,7 +18,7 @@ export function NavBarComponent() {
   return (
     <main>
       <nav
-        className={`${dmsans.className} hidden text-white sticky top-0 z-100 lg:flex justify-around items-center bg-neutral-800 p-1.5 shadow-xl`}>
+        className={`${dmsans.className} hidden text-white sticky top-0 z-100 xl:flex justify-around items-center bg-neutral-800 p-1.5 shadow-xl`}>
         <div>
           <Link
             href={"/"}
@@ -64,7 +64,7 @@ export function NavBarComponent() {
         </div>
       </nav>
 
-      <nav className="lg:hidden bg-neutral-950 p-3">
+      <nav className="xl:hidden bg-neutral-950 p-3">
         <Sheet>
           <SheetTrigger>
             <Menu size={20} color="white" className="float-right" />

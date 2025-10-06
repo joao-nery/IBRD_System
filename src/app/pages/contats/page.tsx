@@ -43,11 +43,11 @@ export default function ContatsPage() {
 
   return (
     <div className="flex flex-col mt-20 items-center">
-      <h1 className="text-4xl font-bold">Nossos Contatos</h1>
+      <h1 className="text-3xl lg:text-4xl font-bold">Nossos Contatos</h1>
 
       <section className="mt-10 flex">
-        <div className="border-1 p-10 w-[380px] lg:w-[500px] shadow-xl rounded-2xl">
-          <h2 className="text-xl lg:text-2xl font-semibold text-center">
+        <div className="border-1 p-5 lg:p-10 w-[330px] lg:w-[500px] lg:shadow-xl rounded-2xl">
+          <h2 className="text-lg lg:text-2xl font-semibold text-center">
             Contate-nos - Fale com a gente
           </h2>
 
@@ -64,7 +64,7 @@ export default function ContatsPage() {
                     <FormControl>
                       <Input
                         type="text"
-                        className="py-6"
+                        className="lg:py-6"
                         {...field}
                         placeholder="Digite seu nome"
                       />
@@ -83,7 +83,7 @@ export default function ContatsPage() {
                     <FormControl>
                       <Input
                         type="email"
-                        className="py-6"
+                        className="lg:py-6"
                         placeholder="example@example.com"
                         {...field}
                       />
@@ -102,7 +102,7 @@ export default function ContatsPage() {
                     <FormControl>
                       <Input
                         type="tel"
-                        className="py-6"
+                        className="lg:py-6"
                         placeholder="(00) 0 0000-0000"
                         {...field}
                       />
