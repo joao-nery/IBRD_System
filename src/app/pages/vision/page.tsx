@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function VisionPage() {
   return (
-    <div className="flex flex-col py-15 lg:mt-10 items-center">
+    <div className="flex flex-col py-15 lg:mt-5 items-center">
       <Image
         src={"/logo.jpg"}
         width={100}

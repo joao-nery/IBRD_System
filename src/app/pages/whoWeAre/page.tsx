@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function WhoWeArePaeg() {
   return (
-    <div className="flex flex-col py-15 mt-5 lg:mt-20 items-center gap-10">
+    <div className="flex flex-col py-15 mt-5 lg:mt-10 items-center gap-10">
       <div className="flex flex-col gap-5 items-center">
         <Image
           src={"/logo.jpg"}
