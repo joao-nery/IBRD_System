@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { DM_Sans } from "next/font/google";
+import { Poppins } from "next/font/google";
 import { SiInstagram, SiWhatsapp } from "@icons-pack/react-simple-icons";
-import { Menu } from "lucide-react";
+import { ChevronDown, Menu } from "lucide-react";
 import {
   Sheet,
   SheetContent,
@@ -11,57 +11,85 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "../ui/sheet";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "../ui/dropdown-menu";
 
-const dmsans = DM_Sans();
+const poppins = Poppins({ weight: "300", adjustFontFallback: true });
 
 export function NavBarComponent() {
   return (
-    <main>
+    <main className="sticky top-0 z-100">
       <nav
-        className={`${dmsans.className} hidden text-white sticky top-0 z-100 xl:flex justify-around items-center bg-neutral-800 p-1.5 shadow-xl`}>
+        className={`${poppins.className} py-3 hidden sticky top-0 rounded-bl-[30px] rounded-br-[30px]  xl:flex justify-center gap-[13%] items-center bg-white text-black p-1.5 shadow-xl`}>
         <div>
           <Link
             href={"/"}
             className="flex items-center gap-2 hover:text-gray-300 cursor-pointer">
             <Image
-              src={"/logo.jpg"}
-              width={40}
-              height={45}
+              src={"/logoSVG 2(1).png"}
+              width={1000}
+              height={0}
+              className="w-[180px]"
               alt="Imagem Logo"
-              className="rounded-full"
             />
-            <h1 className="font-bold ">IBRD - Igreja Batista Renovo de Davi</h1>
           </Link>
         </div>
-        <ul className="flex gap-5 mr-50 *:hover:text-gray-400 font-bold">
-          <li className="">
-            <Link href={"/"}>Página Inicial</Link>
-          </li>
-          <li className="">
-            <Link href={"/pages/whoWeAre"}>Quem Somos</Link>
+        <ul className="flex gap-10 mr-50 *:text-[#401969] font-semibold">
+          <li>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex gap-1">
+                Sobre Nós{" "}
+                <ChevronDown className=" cursor-pointer rounded-full" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="z-100 px-5 py-5">
+                <DropdownMenuLabel className="font-bold">
+                  Sobre Nós
+                </DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>
+                  <Link href={"/pages/cell"}>Quem Somos</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link href={"/#"}>Nossa Visão</Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </li>
           <li>
-            <Link href={"/pages/vision"}>Visão</Link>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex gap-1">
+                Agenda <ChevronDown />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="z-100 px-5 py-5">
+                <DropdownMenuLabel className="font-bold">
+                  Agenda IBRD
+                </DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>
+                  <Link href={"/#"}>Células</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link href={"/#"}>Cultos</Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </li>
           <li>
-            <Link href={"/pages/contats"}>Contatos</Link>
+            <Link href={"/pages/contats"}>Contribua</Link>
           </li>
           <li>
-            <Link href={"/pages/whereLocalization"}>Onde Estamos</Link>
+            <Link href={"/pages/whereLocalization"}>Ensino</Link>
+          </li>
+          <li>
+            <Link href={"/pages/whereLocalization"}>Contato</Link>
           </li>
         </ul>
-        <div className="flex gap-4">
-          <Link
-            href={"https://www.instagram.com/ibrd_oficial/"}
-            target="_blank">
-            <SiInstagram size={25} className="hover:text-gray-400" />
-          </Link>
-          <Link
-            href={"https://www.whatsapp.com/channel/0029VaabZQW6buMF8knzA02K"}
-            target="_blank">
-            <SiWhatsapp size={25} className="hover:text-gray-400" />
-          </Link>
-        </div>
       </nav>
 
       <nav className="xl:hidden bg-neutral-950 p-3">

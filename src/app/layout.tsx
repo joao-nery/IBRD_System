@@ -1,20 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import { NavBarComponent } from "@/components/landingpageLayout/navbar";
+import { FooterComponent } from "@/components/landingpageLayout/footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const poppinsFont = Poppins({
+  weight: "500",
+  adjustFontFallback: true,
 });
 
 export const metadata: Metadata = {
-  title: "IBRD - Igreja Batista Renovo de Davi",
+  title: "IBRD",
   description: "Igreja Comutária",
 };
 
@@ -26,9 +22,10 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        className={`${poppinsFont.className} antialiased bg-gradient-to-tr to-[#601C25] from-[#5530AA]`}>
         <NavBarComponent />
         {children}
+        <FooterComponent />
       </body>
     </html>
   );
