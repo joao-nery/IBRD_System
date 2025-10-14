@@ -12,12 +12,12 @@ import {
 
 export function ContentComponent() {
   return (
-    <div className="bg-white h-[1500px] text-black flex flex-col px-10 justify-center items-center">
-      <h1 className="text-3xl text-center lg:text-4xl font-bold">
+    <div className="bg-white h-[2800px] lg:h-[2000px]  xl:h-[2000px] text-black flex flex-col px-10 justify-center items-center">
+      <h1 className="text-2xl text-center md:text-3xl lg:text-5xl font-bold">
         Aqui na Renovo de Davi, Você Encontra:
       </h1>
 
-      <div className="grid lg:grid-cols-2 mt-20 gap-10 *:bg-neutral-200 *:shadow-xl *:border-2 *:border-neutral-200 *:rounded-3xl">
+      <div className="grid lg:grid-cols-2 xl:grid-cols-2 mt-30 gap-15 xl:gap-10 *:bg-neutral-200 *:shadow-xl *:border-2 *:border-neutral-200 *:rounded-3xl">
         <Card className="w-[350px] md:w-[400px] py-10 md:h-[450px]">
           <CardHeader>
             <HeartHandshake

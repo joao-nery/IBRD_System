@@ -26,7 +26,7 @@ export function NavBarComponent() {
   return (
     <main className="sticky top-0 z-100">
       <nav
-        className={`${poppins.className} py-3 hidden sticky top-0 rounded-bl-[30px] rounded-br-[30px]  xl:flex justify-center gap-[13%] items-center bg-white text-black p-1.5 shadow-xl`}>
+        className={`${poppins.className} py-1 hidden sticky top-0 rounded-bl-[30px] rounded-br-[30px]  lg:flex justify-center gap-[13%] items-center bg-white text-black p-1.5 shadow-xl`}>
         <div>
           <Link
             href={"/"}
@@ -40,12 +40,12 @@ export function NavBarComponent() {
             />
           </Link>
         </div>
-        <ul className="flex gap-10 mr-50 *:text-[#401969] font-semibold">
+        <ul className="flex gap-10 mr-50 *:text-[#401969] lg:text-[14px] xl:text-md font-semibold">
           <li>
             <DropdownMenu>
               <DropdownMenuTrigger className="flex gap-1">
                 Sobre Nós{" "}
-                <ChevronDown className=" cursor-pointer rounded-full" />
+                <ChevronDown className=" cursor-pointer rounded-full w-[20px]" />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="z-100 px-5 py-5">
                 <DropdownMenuLabel className="font-bold">
@@ -92,12 +92,20 @@ export function NavBarComponent() {
         </ul>
       </nav>
 
-      <nav className="xl:hidden bg-neutral-950 p-3">
+      <nav className="lg:hidden bg-white shadow-xl p-3 rounded-bl-[20px] rounded-br-[20px]">
         <Sheet>
-          <SheetTrigger>
-            <Menu size={20} color="white" className="float-right" />
+          <SheetTrigger className="flex items-center justify-center w-full">
+            <Menu size={30} color="black" className="relative right-4/11" />
+
+            <Image
+              src={"/logo.jpg"}
+              width={40}
+              height={45}
+              alt="Imagem Logo"
+              className="rounded-full mr-3"
+            />
           </SheetTrigger>
-          <SheetContent side="left" className="w-[350px] pt-3">
+          <SheetContent side="left" className="w-[350px] pt-15">
             <SheetHeader>
               <SheetTitle>
                 <div>
@@ -116,21 +124,54 @@ export function NavBarComponent() {
                 </div>
               </SheetTitle>
             </SheetHeader>
-            <ul className="flex flex-col gap-2 pl-5 *:hover:text-gray-400 ">
-              <li className="">
-                <Link href={"/"}>Página Inicial</Link>
-              </li>
-              <li className="">
-                <Link href={"/pages/whoWeAre"}>Quem Somos</Link>
+            <ul className="flex flex-col gap-2 pl-5  ">
+              <li>
+                <DropdownMenu>
+                  <DropdownMenuTrigger className="flex gap-1">
+                    Sobre Nós{" "}
+                    <ChevronDown className=" cursor-pointer rounded-full" />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="z-100 ">
+                    <DropdownMenuLabel className="font-bold">
+                      Sobre Nós
+                    </DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem>
+                      <Link href={"/pages/cell"}>Quem Somos</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
+                      <Link href={"/#"}>Nossa Visão</Link>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
               </li>
               <li>
-                <Link href={"/pages/vision"}>Visão</Link>
+                <DropdownMenu>
+                  <DropdownMenuTrigger className="flex gap-1">
+                    Agenda <ChevronDown />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="z-100">
+                    <DropdownMenuLabel className="font-bold">
+                      Agenda IBRD
+                    </DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem>
+                      <Link href={"/#"}>Células</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
+                      <Link href={"/#"}>Cultos</Link>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
               </li>
               <li>
-                <Link href={"/pages/contats"}>Contatos</Link>
+                <Link href={"/pages/contats"}>Contribua</Link>
               </li>
               <li>
-                <Link href={"/pages/whereLocalization"}>Onde Estamos</Link>
+                <Link href={"/pages/whereLocalization"}>Ensino</Link>
+              </li>
+              <li>
+                <Link href={"/pages/whereLocalization"}>Contato</Link>
               </li>
             </ul>
 
