@@ -23,21 +23,23 @@ export default function CellsPage() {
   ];
 
   return (
-    <div className="flex h-screen justify-center lg:-mt-20 flex-col items-center">
-      <h1 className="text-2xl lg:text-4xl font-bold">Nossas Células</h1>
-      <p className="text-lg lg:text-2xl text-gray-500">
+    <div className="flex h-[1200px] mt-50  flex-col items-center">
+      <h1 className="text-2xl lg:text-4xl font-bold text-white">
+        Nossas Células
+      </h1>
+      <p className="text-lg lg:text-2xl text-white">
         Procure a célula mais próxima de sua casa!
       </p>
 
-      <section className="mt-10 lg:mt-20 grid lg:grid-cols-2 gap-5">
+      <section className="mt-10 lg:mt-20 grid md:grid-cols-2 gap-5">
         {addressArray.map((neighborhood, index) => {
           const encodedAddress = encodeURIComponent(neighborhood.address);
           const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
           return (
             <div key={index}>
-              <Card className="w-[300px] lg:w-[500px]">
+              <Card className="w-[300px] lg:w-[400px] xl:w-[500px] h-full py-20">
                 <CardHeader className="text-center">
-                  <CardTitle className="text-xl lg:text-3xl">
+                  <CardTitle className="text-xl lg:text-2xl">
                     {neighborhood.title}
                   </CardTitle>
                   <CardDescription>Traga sua familia!</CardDescription>
@@ -54,7 +56,9 @@ export default function CellsPage() {
                     </p>
                   </div>
                   <Link href={googleMapsUrl} target="_blank" className="mt-4">
-                    <Button className="cursor-pointer" size={"lg"}>
+                    <Button
+                      className="cursor-pointer rounded-full py-10 px-10"
+                      size={"lg"}>
                       Clique para Ver localização
                     </Button>
                   </Link>

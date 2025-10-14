@@ -7,8 +7,8 @@ import Image from "next/image";
 
 export function FooterComponent() {
   return (
-    <footer className="bg-[#1B0D2A] text-white py-15 px-10 xl:px-20">
-      <section className="flex justify-between">
+    <footer className="bg-[#1B0D2A] h-full text-white py-5 px-10">
+      <section className="flex justify-between pt-10">
         <div>
           <Image
             src={"/IBRDN.png"}
@@ -17,7 +17,7 @@ export function FooterComponent() {
             alt="Logo Image"
             className="w-[170px]"
           />
-          <div className="pl-4 text-[11px] flex flex-col gap-2 xl:gap-0 xl:text-base mt-5">
+          <div className="pl-4 text-[11px] flex flex-col gap-3 xl:gap-0 xl:text-xs mt-5">
             <p>
               <span className="font-bold">Endereço:</span> Rua Dois, 417 -
               Parque das Acacias, Betim/MG{" "}
@@ -37,7 +37,7 @@ export function FooterComponent() {
           <SiWhatsapp />
         </div>
       </section>
-      <p className="text-center pt-10 relative top-8 text-xs md:text-base xl:text-lg">
+      <p className="text-center pt-10 text-xs ">
         Desenvolvido por Nery Enterprises - {new Date().getFullYear()}
       </p>
     </footer>

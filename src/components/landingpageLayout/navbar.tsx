@@ -43,9 +43,9 @@ export function NavBarComponent() {
         <ul className="flex gap-10 mr-50 *:text-[#401969] lg:text-[14px] xl:text-md font-semibold">
           <li>
             <DropdownMenu>
-              <DropdownMenuTrigger className="flex gap-1">
+              <DropdownMenuTrigger className="flex gap-1 cursor-pointer ">
                 Sobre Nós{" "}
-                <ChevronDown className=" cursor-pointer rounded-full w-[20px]" />
+                <ChevronDown className=" cursor-pointer rounded-full w-[20px] hover:bg-gray-200" />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="z-100 px-5 py-5">
                 <DropdownMenuLabel className="font-bold">
@@ -53,10 +53,10 @@ export function NavBarComponent() {
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
-                  <Link href={"/pages/cell"}>Quem Somos</Link>
+                  <Link href={"/pages/whoWeAre"}>Quem Somos</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <Link href={"/#"}>Nossa Visão</Link>
+                  <Link href={"/pages/vision"}>Nossa Visão</Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -64,7 +64,8 @@ export function NavBarComponent() {
           <li>
             <DropdownMenu>
               <DropdownMenuTrigger className="flex gap-1">
-                Agenda <ChevronDown />
+                Agenda{" "}
+                <ChevronDown className=" cursor-pointer rounded-full w-[20px] hover:bg-gray-200" />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="z-100 px-5 py-5">
                 <DropdownMenuLabel className="font-bold">
@@ -72,10 +73,10 @@ export function NavBarComponent() {
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
-                  <Link href={"/#"}>Células</Link>
+                  <Link href={"/pages/cell"}>Células</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <Link href={"/#"}>Cultos</Link>
+                  <Link href={"/pages/cults"}>Cultos</Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -137,10 +138,10 @@ export function NavBarComponent() {
                     </DropdownMenuLabel>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem>
-                      <Link href={"/pages/cell"}>Quem Somos</Link>
+                      <Link href={"/pages/whoWeAre"}>Quem Somos</Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem>
-                      <Link href={"/#"}>Nossa Visão</Link>
+                      <Link href={"/pages/vision"}>Nossa Visão</Link>
                     </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
@@ -156,10 +157,10 @@ export function NavBarComponent() {
                     </DropdownMenuLabel>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem>
-                      <Link href={"/#"}>Células</Link>
+                      <Link href={"/pages/cell"}>Células</Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem>
-                      <Link href={"/#"}>Cultos</Link>
+                      <Link href={"/pages/cults"}>Cultos</Link>
                     </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
