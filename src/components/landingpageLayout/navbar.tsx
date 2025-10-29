@@ -1,200 +1,105 @@
 import Image from "next/image";
-import Link from "next/link";
-import { Poppins } from "next/font/google";
-import { SiInstagram, SiWhatsapp } from "@icons-pack/react-simple-icons";
-import { ChevronDown, Menu } from "lucide-react";
 import {
   Sheet,
   SheetContent,
-  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "../ui/sheet";
+import { ChevronDown, MenuIcon } from "lucide-react";
+import Link from "next/link";
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "../ui/dropdown-menu";
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "../ui/collapsible";
 
-const poppins = Poppins({ weight: "300", adjustFontFallback: true });
-
-export function NavBarComponent() {
+export function NavbarComponent() {
   return (
-    <main className="sticky top-0 z-100">
-      <nav
-        className={`${poppins.className} py-1 hidden sticky top-0 rounded-bl-[30px] rounded-br-[30px]  lg:flex justify-center gap-[13%] items-center bg-white text-black p-1.5 shadow-xl`}>
-        <div>
-          <Link
-            href={"/"}
-            className="flex items-center gap-2 hover:text-gray-300 cursor-pointer">
-            <Image
-              src={"/logoSVG 2(1).png"}
-              width={1000}
-              height={0}
-              className="w-[180px]"
-              alt="Imagem Logo"
-            />
-          </Link>
-        </div>
-        <ul className="flex gap-10 mr-50 *:text-[#401969] lg:text-[14px] xl:text-md font-semibold">
-          <li>
-            <DropdownMenu>
-              <DropdownMenuTrigger className="flex gap-1 cursor-pointer ">
-                Sobre Nós{" "}
-                <ChevronDown className=" cursor-pointer rounded-full w-[20px] hover:bg-gray-200" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="z-100 px-5 py-5">
-                <DropdownMenuLabel className="font-bold">
-                  Sobre Nós
-                </DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem>
-                  <Link href={"/pages/whoWeAre"}>Quem Somos</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Link href={"/pages/vision"}>Nossa Visão</Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </li>
-          <li>
-            <DropdownMenu>
-              <DropdownMenuTrigger className="flex gap-1">
-                Agenda{" "}
-                <ChevronDown className=" cursor-pointer rounded-full w-[20px] hover:bg-gray-200" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="z-100 px-5 py-5">
-                <DropdownMenuLabel className="font-bold">
-                  Agenda IBRD
-                </DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem>
-                  <Link href={"/pages/cell"}>Células</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Link href={"/pages/cults"}>Cultos</Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </li>
-          <li>
-            <Link href={"/pages/contats"}>Contribua</Link>
-          </li>
-          <li>
-            <Link href={"/pages/whereLocalization"}>Ensino</Link>
-          </li>
-          <li>
-            <Link href={"/pages/whereLocalization"}>Contato</Link>
-          </li>
-        </ul>
-      </nav>
-
-      <nav className="lg:hidden bg-white shadow-xl p-3 rounded-bl-[20px] rounded-br-[20px]">
-        <Sheet>
-          <SheetTrigger className="flex items-center justify-center w-full">
-            <Menu size={30} color="black" className="relative right-4/11" />
-
-            <Image
-              src={"/logo.jpg"}
-              width={40}
-              height={45}
-              alt="Imagem Logo"
-              className="rounded-full mr-3"
-            />
-          </SheetTrigger>
-          <SheetContent side="left" className="w-[350px] pt-15">
-            <SheetHeader>
-              <SheetTitle>
-                <div>
-                  <Link
-                    href={"/"}
-                    className="flex items-center gap-2 hover:text-gray-300 cursor-pointer">
+    <>
+      {/* Mobile */}
+      <nav className="bg-[#15131B] h-max py-3 rounded-bl-3xl rounded-br-3xl shadow-2xl sticky top-0">
+        <div className="flex px-5">
+          <Sheet>
+            <SheetTrigger>
+              <MenuIcon color="white" />
+            </SheetTrigger>
+            <SheetContent className="bg-[#15131B] border-none text-white">
+              <SheetHeader className="bg-black rounded-bl-3xl rounded-br-3xl">
+                <Link href={"/"}>
+                  <div className="flex gap-2 items-center">
                     <Image
                       src={"/logo.jpg"}
-                      width={40}
-                      height={45}
-                      alt="Imagem Logo"
-                      className="rounded-full"
+                      width={1000}
+                      height={0}
+                      className="w-[40px] rounded-full"
+                      alt="Logo Image"
                     />
-                    <h1 className="font-bold ">IBRD</h1>
-                  </Link>
-                </div>
-              </SheetTitle>
-            </SheetHeader>
-            <ul className="flex flex-col gap-2 pl-5  ">
-              <li>
-                <DropdownMenu>
-                  <DropdownMenuTrigger className="flex gap-1">
-                    Sobre Nós{" "}
-                    <ChevronDown className=" cursor-pointer rounded-full" />
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent className="z-100 ">
-                    <DropdownMenuLabel className="font-bold">
-                      Sobre Nós
-                    </DropdownMenuLabel>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem>
-                      <Link href={"/pages/whoWeAre"}>Quem Somos</Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem>
-                      <Link href={"/pages/vision"}>Nossa Visão</Link>
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </li>
-              <li>
-                <DropdownMenu>
-                  <DropdownMenuTrigger className="flex gap-1">
-                    Agenda <ChevronDown />
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent className="z-100">
-                    <DropdownMenuLabel className="font-bold">
-                      Agenda IBRD
-                    </DropdownMenuLabel>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem>
-                      <Link href={"/pages/cell"}>Células</Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem>
-                      <Link href={"/pages/cults"}>Cultos</Link>
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </li>
-              <li>
-                <Link href={"/pages/contats"}>Contribua</Link>
-              </li>
-              <li>
-                <Link href={"/pages/whereLocalization"}>Ensino</Link>
-              </li>
-              <li>
-                <Link href={"/pages/whereLocalization"}>Contato</Link>
-              </li>
-            </ul>
+                    <SheetTitle className="text-white">IBRD</SheetTitle>
+                  </div>
+                </Link>
+              </SheetHeader>
 
-            <SheetFooter>
-              <div className="flex  gap-2">
-                <Link
-                  href={"https://www.instagram.com/ibrd_oficial/"}
-                  target="_blank">
-                  <SiInstagram size={25} className="text-gray-900" />
-                </Link>
-                <Link
-                  href={
-                    "https://www.whatsapp.com/channel/0029VaabZQW6buMF8knzA02K"
-                  }
-                  target="_blank">
-                  <SiWhatsapp size={25} className="hover:text-gray-400" />
-                </Link>
+              <div className="mt-5">
+                <ul className=" pl-5 flex flex-col gap-5">
+                  <li>
+                    <Collapsible>
+                      <CollapsibleTrigger className="flex gap-1">
+                        <p>Sobre nós</p>
+                        <ChevronDown />
+                      </CollapsibleTrigger>
+                      <CollapsibleContent>
+                        <div className="flex flex-col gap-3 p-2 text-[14px] text-gray-200">
+                          <Link href={"/pages/whoWeAre"}>- Quem Somos</Link>
+                          <Link href={"/pages/vision"}>- Visão</Link>
+                        </div>
+                      </CollapsibleContent>
+                    </Collapsible>
+                  </li>
+                  <li>
+                    <Collapsible>
+                      <CollapsibleTrigger className="flex gap-1">
+                        <p>Agenda</p>
+                        <ChevronDown />
+                      </CollapsibleTrigger>
+                      <CollapsibleContent>
+                        <div className="flex flex-col gap-3 p-2 text-[14px] text-gray-200">
+                          <Link href={"/pages/cell"}>- Células</Link>
+                          <Link href={"/pages/vision"}>- Cultos</Link>
+                        </div>
+                      </CollapsibleContent>
+                    </Collapsible>
+                  </li>
+
+                  <li>
+                    <Link href={"/pages/contribute"}>Contribua</Link>
+                  </li>
+                  <li>
+                    <Link href={"/#"}>Ensino</Link>
+                  </li>
+                  <li>
+                    <Link href={"/pages/contact"}>Contato</Link>
+                  </li>
+                </ul>
               </div>
-            </SheetFooter>
-          </SheetContent>
-        </Sheet>
+            </SheetContent>
+          </Sheet>
+          <div className="w-full flex justify-center">
+            <Link href={"/"}>
+              <Image
+                src={"/logo.jpg"}
+                width={1000}
+                height={0}
+                className="w-[40px] rounded-full"
+                alt="Logo Image"
+              />
+            </Link>
+          </div>
+        </div>
       </nav>
-    </main>
+
+      {/* Desktop */}
+      <nav></nav>
+    </>
   );
 }

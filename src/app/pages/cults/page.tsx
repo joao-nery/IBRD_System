@@ -9,7 +9,7 @@ export default function CultsPage() {
         <div className="flex gap-4 items-center">
           <Cog size={100} color="black" />
           <h3 className="text-black text-lg lg:text-3xl font-bold">
-            Tela em Contrusção aguarde!
+            Tela em Construsção aguarde!
           </h3>
         </div>
         <Link href={"/"}>

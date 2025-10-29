@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import { NavBarComponent } from "@/components/landingpageLayout/navbar";
+import { NavbarComponent } from "@/components/landingpageLayout/navbar";
 import { FooterComponent } from "@/components/landingpageLayout/footer";
 
 const poppinsFont = Poppins({
@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body
         className={`${poppinsFont.className} antialiased bg-gradient-to-tr to-[#601C25] from-[#5530AA]`}>
-        <NavBarComponent />
+        <NavbarComponent />
         {children}
         <FooterComponent />
       </body>
