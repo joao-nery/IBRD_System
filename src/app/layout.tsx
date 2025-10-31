@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import { NavbarComponent } from "@/components/landingpageLayout/navbar";
+
 import { FooterComponent } from "@/components/landingpageLayout/footer";
+import { NavbarComponent } from "@/components/landingpageLayout/navbar/navbar_component";
 
 const poppinsFont = Poppins({
   weight: "500",
