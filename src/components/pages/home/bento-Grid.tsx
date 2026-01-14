@@ -67,8 +67,8 @@ export default function BentoGrid() {
             </h3>
 
             <p className="text-zinc-200 max-w-lg font-medium text-lg mb-6 leading-relaxed text-balance">
-              "Liderando com amor e visão. Venha conhecer uma família que ama
-              servir e acolher você."
+              &quot;Liderando com amor e visão. Venha conhecer uma família que
+              ama servir e acolher você.&quot;
             </p>
 
             {/* Botão com efeito Glassmorphism */}

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Heart, Target, Lightbulb, ArrowRight, Clock } from "lucide-react";
 import Link from "next/link";
@@ -8,7 +8,6 @@ import Link from "next/link";
 export default function AboutPage() {
   return (
     <div className="pt-24 pb-16">
-      {/* --- HERO SECTION (Texto Focado) --- */}
       <section className="px-6 max-w-4xl mx-auto text-center space-y-6 mb-24 fade-in-up">
         <Badge
           variant="secondary"
@@ -125,9 +124,9 @@ export default function AboutPage() {
                   Pastor Mateus Nery
                 </h2>
                 <p className="text-lg text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                  "Olá! Sou apaixonado por ver pessoas descobrindo seu propósito
-                  em Deus. Acredito que a igreja deve ser um hospital para a
-                  alma e uma escola para a vida."
+                  &quot; Olá! Sou apaixonado por ver pessoas descobrindo seu
+                  propósito em Deus. Acredito que a igreja deve ser um hospital
+                  para a alma e uma escola para a vida. &quot;
                 </p>
               </div>
 

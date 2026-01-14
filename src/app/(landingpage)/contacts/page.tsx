@@ -4,13 +4,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
-  MapPin,
-  Phone,
   Mail,
   Clock,
   MessageCircle,
   Send,
-  ArrowRight,
   Instagram,
   Globe,
 } from "lucide-react";
