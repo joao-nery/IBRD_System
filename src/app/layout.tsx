@@ -1,9 +1,7 @@
-import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-
-import { FooterComponent } from "@/components/landingpageLayout/footer";
-import { NavbarComponent } from "@/components/landingpageLayout/navbar/navbar_component";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Metadata } from "next";
 
 const poppinsFont = Poppins({
   weight: "500",
@@ -12,7 +10,7 @@ const poppinsFont = Poppins({
 
 export const metadata: Metadata = {
   title: "IBRD",
-  description: "Igreja Comutária",
+  description: "Igreja Comunitária",
 };
 
 export default function RootLayout({
@@ -21,12 +19,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
-      <body
-        className={`${poppinsFont.className} antialiased bg-gradient-to-tr to-[#601C25] from-[#5530AA]`}>
-        <NavbarComponent />
-        {children}
-        <FooterComponent />
+    <html lang="pt-BR" suppressHydrationWarning>
+      <body className={`${poppinsFont.className} antialiased bg-black`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
