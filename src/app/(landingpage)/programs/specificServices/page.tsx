@@ -54,7 +54,7 @@ export default function SpecialServices() {
       description:
         "Forjando caráter e liderança. Um ambiente franco para homens crescerem em seu papel sacerdotal na família e sociedade.",
       image:
-        "https://images.unsplash.com/photo-1503443207922-dff7d543fd0e?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1497906939010-746643734b27?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       week: "4º Sábado",
@@ -66,7 +66,7 @@ export default function SpecialServices() {
       description:
         "Investimento no seu relacionamento. Palestras dinâmicas, renovação de votos e ferramentas para um casamento blindado.",
       image:
-        "https://images.unsplash.com/photo-1621252179027-94459d27d3ee?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1426543881949-cbd9a76740a4?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
   ];
 

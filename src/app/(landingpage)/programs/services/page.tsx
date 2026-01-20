@@ -194,7 +194,7 @@ export default function ServicesPage() {
               </div>
               <div className="flex items-center gap-6 text-white font-semibold pt-2 border-t border-white/20 mt-4">
                 <span className="flex items-center gap-2 text-lg">
-                  <Clock size={20} className="text-zinc-300" /> 19:30
+                  <Clock size={20} className="text-zinc-300" /> 20:00
                 </span>
                 <span className="flex items-center gap-2 text-sm text-zinc-300 font-normal">
                   <MapPin size={16} /> Templo Principal

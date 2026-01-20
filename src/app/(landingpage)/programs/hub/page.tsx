@@ -16,10 +16,14 @@ import {
   ChevronRight,
   Music,
 } from "lucide-react";
+import { SiWhatsapp } from "@icons-pack/react-simple-icons";
 
 export default function HubPage() {
+  const googleMapsLink =
+    "https://www.google.com/maps/search/?api=1&query=Rua+Dois,+417,+Parque+das+Acacias,+Betim,+MG";
+
   return (
-    <main className="min-h-screen bg-zinc-50 dark:bg-black text-zinc-900 dark:text-zinc-100 p-6 mt-30 lg:mt-15 md:p-12 lg:py-20">
+    <main className="min-h-screen bg-zinc-50 dark:bg-black text-zinc-900 dark:text-zinc-100 p-6 pt-30 lg:mt-15 md:p-12 lg:py-20">
       {/* Container Principal */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-24">
         {/* --- COLUNA DA ESQUERDA (Identidade & Ações) --- 
@@ -55,8 +59,10 @@ export default function HubPage() {
             <Button
               className="h-14 lg:h-16 rounded-2xl bg-green-600 hover:bg-green-700 text-white border-none shadow-lg shadow-green-900/10 gap-2 lg:gap-3 text-sm lg:text-base font-semibold"
               asChild>
-              <Link href="https://wa.me/5531999999999" target="_blank">
-                <MessageCircle size={20} className="lg:w-6 lg:h-6" />
+              <Link
+                href="https://whatsapp.com/channel/0029VaabZQW6buMF8knzA02K"
+                target="_blank">
+                <SiWhatsapp size={20} className="lg:w-6 lg:h-8 lg:size-1" />
                 WhatsApp
               </Link>
             </Button>
@@ -64,8 +70,11 @@ export default function HubPage() {
               variant="outline"
               className="h-14 lg:h-16 rounded-2xl border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 gap-2 lg:gap-3 hover:bg-zinc-50 dark:hover:bg-zinc-800 text-sm lg:text-base font-semibold shadow-sm"
               asChild>
-              <Link href="/contacts">
-                <MapPin size={20} className="text-red-500 lg:w-6 lg:h-6" />
+              <Link href={googleMapsLink} target="_blank">
+                <MapPin
+                  size={20}
+                  className="text-red-500 lg:w-6 lg:h-8 lg:size-1"
+                />
                 Localização
               </Link>
             </Button>
@@ -97,7 +106,7 @@ export default function HubPage() {
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent" />
             <div className="absolute bottom-0 left-0 p-6 lg:p-8">
-              <Badge className="bg-blue-600 border-none mb-2 lg:mb-3 px-2 lg:px-3 py-0.5 lg:py-1 text-[10px] lg:text-xs">
+              <Badge className="bg-blue-600 text-white border-none mb-2 lg:mb-3 px-2 lg:px-3 py-0.5 lg:py-1 text-[10px] lg:text-xs">
                 Principal
               </Badge>
               <h3 className="text-xl lg:text-3xl font-bold text-white flex items-center gap-2 lg:gap-3 mb-1 lg:mb-2">
@@ -105,7 +114,7 @@ export default function HubPage() {
                 <ArrowRight className="w-4 h-4 lg:w-6 lg:h-6 opacity-70 group-hover:translate-x-1 transition-transform" />
               </h3>
               <p className="text-zinc-300 text-xs lg:text-base font-medium">
-                Domingo 19h & Quarta 19:30h
+                Domingo 09h - 19h & Quinta 20h
               </p>
             </div>
           </Link>
@@ -114,7 +123,7 @@ export default function HubPage() {
           <div className="grid grid-cols-2 gap-4 lg:gap-6">
             {/* Redes */}
             <Link
-              href="/specificServices"
+              href="/programs/specificServices"
               className="group relative flex flex-col justify-between p-4 lg:p-6 h-36 lg:h-48 rounded-[1.5rem] lg:rounded-[2rem] bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-purple-500/50 hover:bg-purple-50/50 dark:hover:bg-purple-900/10 transition-all overflow-hidden">
               <div className="absolute -top-12 -right-12 w-24 lg:w-32 h-24 lg:h-32 bg-purple-500/20 blur-3xl rounded-full group-hover:bg-purple-500/30 transition-colors" />
 
@@ -133,7 +142,7 @@ export default function HubPage() {
 
             {/* Células */}
             <Link
-              href="/cell"
+              href="/programs/cells"
               className="group relative flex flex-col justify-between p-4 lg:p-6 h-36 lg:h-48 rounded-[1.5rem] lg:rounded-[2rem] bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-green-500/50 hover:bg-green-50/50 dark:hover:bg-green-900/10 transition-all overflow-hidden">
               <div className="absolute -top-12 -right-12 w-24 lg:w-32 h-24 lg:h-32 bg-green-500/20 blur-3xl rounded-full group-hover:bg-green-500/30 transition-colors" />
 
