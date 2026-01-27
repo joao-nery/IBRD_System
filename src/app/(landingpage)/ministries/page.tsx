@@ -1,174 +1,244 @@
-import Image from "next/image";
+"use client";
 
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import {
-  Home,
-  Baby,
-  Music2,
-  HeartHandshake,
-  Camera,
-  Coffee,
-  ArrowRight,
+  MapPin,
   Users,
+  Heart,
+  Music,
+  Baby,
+  Coffee,
+  Clock,
+  Home,
+  Megaphone,
 } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
-export default function MinistersPage() {
+export default function CommunityPage() {
+  // Dados das Células (Com links reais ou placeholders para o Maps)
+  const cells = [
+    {
+      name: "Célula Laranjeiras",
+      neighborhood: "Laranjeiras",
+      host: "Família Silva",
+      time: "Terça às 20h",
+      addressLink: "https://goo.gl/maps/placeholderLaranjeiras", // Substitua pelo link real
+      image:
+        "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      name: "Célula Vila Cristina",
+      neighborhood: "Vila Cristina",
+      host: "Pr. João & Maria",
+      time: "Quarta às 19h30",
+      addressLink: "https://goo.gl/maps/placeholderVilaCristina",
+      image:
+        "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      name: "Célula Pq. das Acácias",
+      neighborhood: "Parque das Acácias",
+      host: "Lucas & Ana",
+      time: "Quinta às 20h",
+      addressLink: "https://goo.gl/maps/placeholderAcacias",
+      image:
+        "https://images.unsplash.com/photo-1478147427282-58a87a120781?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      name: "Célula Centro",
+      neighborhood: "Centro de Betim",
+      host: "Pedro & Julia",
+      time: "Sexta às 20h",
+      addressLink: "https://goo.gl/maps/placeholderCentro",
+      image:
+        "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80",
+    },
+  ];
+
+  // Dados dos Ministérios
   const ministries = [
     {
-      title: "Pequenos Grupos",
-      desc: "A igreja acontece nos lares. Crie conexões profundas, compartilhe a vida e cresça em comunhão durante a semana.",
-      icon: <Home size={24} />,
-      color: "bg-blue-500",
-      image:
-        "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=2669&auto=format&fit=crop",
+      title: "Grupo de Jovens (HUB)",
+      desc: "Uma galera apaixonada por Jesus, conectada e pronta para marcar essa geração.",
+      icon: <Users size={24} className="text-purple-500" />,
+      bgIcon: "bg-purple-100 dark:bg-purple-900/20",
     },
     {
-      title: "IBRD Kids",
-      desc: "Investimos na próxima geração. Um ambiente seguro e divertido onde as crianças aprendem princípios bíblicos.",
-      icon: <Baby size={24} />,
-      color: "bg-yellow-500",
-      image:
-        "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2670&auto=format&fit=crop",
+      title: "Renovo Kids",
+      desc: "Ensinando o caminho da verdade para os pequeninos com muito amor e diversão.",
+      icon: <Baby size={24} className="text-yellow-500" />,
+      bgIcon: "bg-yellow-100 dark:bg-yellow-900/20",
     },
     {
-      title: "Worship & Artes",
-      desc: "Levitas, músicos e artistas que conduzem a igreja à presença de Deus através da excelência e unção.",
-      icon: <Music2 size={24} />,
-      color: "bg-purple-500",
-      image:
-        "https://images.unsplash.com/photo-1514525253440-b393452e8d26?q=80&w=2670&auto=format&fit=crop",
-    },
-    {
-      title: "Ação Social",
-      desc: "O amor em movimento. Servimos nossa comunidade em Betim através de doações, apoio a famílias e projetos sociais.",
-      icon: <HeartHandshake size={24} />,
-      color: "bg-red-500",
-      image:
-        "https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=2670&auto=format&fit=crop",
-    },
-    {
-      title: "Mídia & Comunicação",
-      desc: "Levando a mensagem do evangelho para o mundo digital através da fotografia, vídeo, design e transmissão.",
-      icon: <Camera size={24} />,
-      color: "bg-pink-500",
-      image:
-        "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=2528&auto=format&fit=crop",
+      title: "Mulheres da Dança",
+      desc: "Expressando adoração e louvor através do movimento e da arte.",
+      icon: <Music size={24} className="text-pink-500" />,
+      bgIcon: "bg-pink-100 dark:bg-pink-900/20",
     },
     {
       title: "Recepção & Acolhimento",
-      desc: "O primeiro sorriso, o café quentinho e o abraço que faz qualquer pessoa se sentir em casa na IBRD.",
-      icon: <Coffee size={24} />,
-      color: "bg-orange-500",
-      image:
-        "https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=2670&auto=format&fit=crop",
+      desc: "O sorriso que recebe, o abraço que acolhe. Servindo com excelência na casa.",
+      icon: <Coffee size={24} className="text-orange-500" />,
+      bgIcon: "bg-orange-100 dark:bg-orange-900/20",
+    },
+    {
+      title: "Mídia & Comunicação",
+      desc: "Levando a mensagem do Evangelho através das lentes, telas e redes sociais.",
+      icon: <Megaphone size={24} className="text-blue-500" />,
+      bgIcon: "bg-blue-100 dark:bg-blue-900/20",
+    },
+    {
+      title: "Ação Social",
+      desc: "Amor na prática. Mãos estendidas para abençoar nossa cidade e quem precisa.",
+      icon: <Heart size={24} className="text-red-500" />,
+      bgIcon: "bg-red-100 dark:bg-red-900/20",
     },
   ];
 
   return (
-    <div className="pt-24 pb-16 min-h-screen bg-zinc-50 dark:bg-zinc-950">
-      {/* --- HEADER --- */}
-      <section className="px-6 max-w-4xl mx-auto text-center space-y-6 mb-16 fade-in-up">
+    <div className="min-h-screen pt-24 bg-white dark:bg-black text-zinc-900 dark:text-zinc-100">
+      {/* --- HERO SECTION (Fundo Branco) --- */}
+      <section className="px-6 max-w-4xl mx-auto text-center mb-24 pt-10 animate-fade-in-up">
         <Badge
           variant="secondary"
-          className="px-4 py-1.5 text-sm rounded-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 font-medium">
-          Áreas de Atuação
+          className="mb-8 px-6 py-2 bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 border border-zinc-200 dark:border-zinc-700 text-sm font-medium">
+          Nossa Comunidade
         </Badge>
-        <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-zinc-900 dark:text-white">
-          Encontre o seu lugar
+        <h1 className="text-5xl md:text-7xl font-black tracking-tight mb-8 text-zinc-900 dark:text-white">
+          Não fomos criados <br className="hidden md:block" />
+          para viver sozinhos.
         </h1>
-        <p className="text-lg text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto">
-          Acreditamos que todo membro é um ministro. Descubra onde seus dons
-          podem servir ao Reino e transformar vidas.
+        <p className="text-xl md:text-2xl text-zinc-600 dark:text-zinc-400 max-w-3xl mx-auto font-medium leading-relaxed">
+          Seja servindo em um ministério ou compartilhando a vida em uma célula,
+          aqui você encontra uma família para pertencer.
         </p>
       </section>
 
-      {/* --- GRID DE MINISTÉRIOS --- */}
-      <section className="px-6 max-w-7xl mx-auto mb-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {ministries.map((item, index) => (
-            <Card
-              key={index}
-              className="group overflow-hidden border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:shadow-2xl hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-500 hover:-translate-y-2">
-              {/* Imagem de Capa */}
-              <div className="relative h-56 w-full overflow-hidden">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                {/* Overlay Gradiente */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80" />
+      {/* --- SEÇÃO 1: CÉLULAS (Fundo Cinza Suave no Claro) --- */}
+      <section className="py-24 bg-zinc-100 dark:bg-zinc-900/30 border-y border-zinc-100 dark:border-zinc-800">
+        <div className="px-6 max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+            <div className="flex items-center gap-4">
+              <div className="p-3 bg-green-100 dark:bg-green-900/20 rounded-2xl text-green-600 dark:text-green-400">
+                <Home size={28} />
+              </div>
+              <div>
+                <h2 className="text-4xl font-bold tracking-tight text-zinc-900 dark:text-white">
+                  Nossas Células
+                </h2>
+                <p className="text-zinc-500 mt-2 font-medium">
+                  Igreja nos lares. Encontre uma perto de você.
+                </p>
+              </div>
+            </div>
+            {/* Opcional: Filtro de Bairros futuramente */}
+          </div>
 
-                {/* Ícone Flutuante */}
-                <div
-                  className={`absolute bottom-4 left-4 w-12 h-12 rounded-xl ${item.color} flex items-center justify-center text-white shadow-lg z-10 group-hover:scale-110 transition-transform`}>
-                  {item.icon}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {cells.map((cell, index) => (
+              <div
+                key={index}
+                className="group bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-[2rem] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                {/* Imagem da Célula */}
+                <div className="relative h-48 w-full overflow-hidden">
+                  <Image
+                    src={cell.image}
+                    alt={cell.name}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <p className="font-bold text-lg">{cell.neighborhood}</p>
+                  </div>
+                </div>
+
+                {/* Conteúdo */}
+                <div className="p-6 flex flex-col flex-grow">
+                  <h3 className="text-xl font-bold text-zinc-900 dark:text-white mb-2">
+                    {cell.name}
+                  </h3>
+                  <div className="space-y-2 mb-6">
+                    <div className="flex items-center gap-2 text-sm text-zinc-600 dark:text-zinc-400">
+                      <Users size={16} className="text-zinc-400" /> {cell.host}
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-zinc-600 dark:text-zinc-400">
+                      <Clock size={16} className="text-zinc-400" /> {cell.time}
+                    </div>
+                  </div>
+
+                  <div className="mt-auto">
+                    <Button
+                      variant="outline"
+                      className="w-full rounded-full border-zinc-300 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-800 font-bold group-hover:border-green-500 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors"
+                      asChild>
+                      <Link href={cell.addressLink} target="_blank">
+                        <MapPin className="mr-2 h-4 w-4" /> Ver no Mapa
+                      </Link>
+                    </Button>
+                  </div>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-              <CardHeader className="pt-6 pb-2">
-                <CardTitle className="text-2xl font-bold text-zinc-900 dark:text-white group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors">
-                  {item.title}
-                </CardTitle>
-              </CardHeader>
+      {/* --- SEÇÃO 2: MINISTÉRIOS (Fundo Branco) --- */}
+      <section className="py-24 px-6 max-w-7xl mx-auto">
+        <div className="flex items-center gap-4 mb-12">
+          <div className="p-3 bg-blue-100 dark:bg-blue-900/20 rounded-2xl text-blue-600 dark:text-blue-400">
+            <Heart size={28} />
+          </div>
+          <div>
+            <h2 className="text-4xl font-bold tracking-tight text-zinc-900 dark:text-white">
+              Ministérios
+            </h2>
+            <p className="text-zinc-500 mt-2 font-medium">
+              Áreas onde servimos a Deus e uns aos outros.
+            </p>
+          </div>
+        </div>
 
-              <CardContent>
-                <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm">
-                  {item.desc}
-                </p>
-              </CardContent>
-
-              <CardFooter className="pt-4 mt-auto">
-                <Button
-                  variant="ghost"
-                  className="w-full justify-between hover:bg-zinc-50 dark:hover:bg-zinc-800 text-zinc-900 dark:text-white group/btn">
-                  Quero servir aqui
-                  <ArrowRight
-                    size={16}
-                    className="text-zinc-400 group-hover/btn:text-black dark:group-hover/btn:text-white transition-colors"
-                  />
-                </Button>
-              </CardFooter>
-            </Card>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {ministries.map((ministry, index) => (
+            <div
+              key={index}
+              className="p-8 rounded-[2.5rem] bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-blue-200 dark:hover:border-blue-900/50 hover:shadow-lg transition-all duration-300 group">
+              <div
+                className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${ministry.bgIcon} group-hover:scale-110 transition-transform`}>
+                {ministry.icon}
+              </div>
+              <h3 className="text-2xl font-bold text-zinc-900 dark:text-white mb-3">
+                {ministry.title}
+              </h3>
+              <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium">
+                {ministry.desc}
+              </p>
+            </div>
           ))}
         </div>
       </section>
 
-      {/* --- CTA VOLUNTARIADO --- */}
-      <section className="px-6 max-w-5xl mx-auto">
-        <div className="bg-zinc-900 dark:bg-zinc-100 rounded-3xl p-8 md:p-12 text-center md:text-left flex flex-col md:flex-row items-center gap-8 md:gap-16 shadow-2xl relative overflow-hidden">
-          {/* Background Pattern sutil */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-zinc-800 dark:bg-zinc-200 rounded-full blur-[80px] opacity-50 -translate-y-1/2 translate-x-1/2" />
+      {/* --- CTA FINAL: QUER SERVIR? (Fundo Escuro/Destaque) --- */}
+      <section className="py-24 bg-zinc-50 dark:bg-zinc-800 text-black dark:text-white  mt-12">
+        <div className="px-6 max-w-4xl mx-auto text-center space-y-8">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+            Quer fazer parte de algo maior?
+          </h2>
+          <p className="text-black dark:text-zinc-300  text-lg max-w-2xl mx-auto font-medium">
+            Se você deseja servir em algum ministério ou abrir sua casa para uma
+            célula, fale com nossa liderança. Há um lugar especial para você.
+          </p>
 
-          <div className="relative z-10 flex-1 space-y-4">
-            <h2 className="text-3xl font-bold text-white dark:text-zinc-900">
-              Não sabe por onde começar?
-            </h2>
-            <p className="text-zinc-400 dark:text-zinc-600 text-lg">
-              Participe do nosso{" "}
-              <span className="text-white dark:text-black font-bold">
-                Curso de Integração
-              </span>
-              . É o primeiro passo para conhecer nossa cultura e descobrir seus
-              dons espirituais.
-            </p>
-          </div>
-
-          <div className="relative z-10">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <Button
               size="lg"
-              className="rounded-full h-14 px-8 text-base font-bold bg-white text-black hover:bg-zinc-200 dark:bg-black dark:text-white dark:hover:bg-zinc-800 shadow-xl w-full md:w-auto">
-              <Users className="mr-2 h-5 w-5" />
-              Inscreva-se agora
+              className="rounded-full text-lg px-10 py-8 font-semibold"
+              asChild>
+              <Link href="/contacts">Fale conosco</Link>
             </Button>
           </div>
         </div>
