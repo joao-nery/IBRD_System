@@ -315,7 +315,9 @@ export default function ProgrammingPage() {
             size="lg"
             className="group relative h-16 px-10 rounded-full bg-[#25D366] hover:bg-[#1ebc57] text-white font-bold text-lg shadow-xl shadow-green-500/20 transition-all duration-300 hover:scale-105"
             asChild>
-            <Link href="https://wa.me/seu-numero" target="_blank">
+            <Link
+              href="https://www.whatsapp.com/channel/0029VaabZQW6buMF8knzA02K"
+              target="_blank">
               <SiWhatsapp className="mr-3 text-2xl group-hover:rotate-12 transition-transform duration-300" />
               Falar no WhatsApp
             </Link>
