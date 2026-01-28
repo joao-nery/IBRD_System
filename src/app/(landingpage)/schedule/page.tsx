@@ -209,11 +209,6 @@ export default function ProgrammingPage() {
                 </p>
               </div>
             </div>
-            <Button
-              variant="ghost"
-              className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white rounded-full">
-              Ver calendário anual
-            </Button>
           </div>
 
           <div className="space-y-4">

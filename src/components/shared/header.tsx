@@ -12,16 +12,9 @@ import {
   Calendar,
   Phone,
   ChevronRight,
-  Instagram,
-  MessageCircle,
-  ChevronDown,
-  BookOpen,
-  Star,
-  Users,
-  List,
-  Layers,
-  Book, // Ícone novo para a categoria Programs
 } from "lucide-react";
+
+import { SiInstagram, SiWhatsapp } from "@icons-pack/react-simple-icons";
 
 import {
   Sheet,
@@ -31,13 +24,6 @@ import {
   SheetTrigger,
   SheetClose,
 } from "../ui/sheet";
-
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "../ui/dropdown-menu";
 
 export default function Header() {
   // Itens do menu traduzidos para Inglês e com hrefs atualizados
@@ -54,7 +40,7 @@ export default function Header() {
 
   // Classes comuns para o botão preto gradiente
   const blackGradientBtnClasses =
-    "bg-gradient-to-r from-zinc-900 via-black to-zinc-900 text-white shadow-xl hover:from-black hover:to-black shadow-md hover:shadow-xl transition-all duration-300 border-none";
+    "bg-gradient-to-r from-zinc-900 via-black to-zinc-900 text-white shadow-xl hover:from-black hover:to-black shadow-md hover:shadow-xl transition-all duration-300 border-2";
 
   return (
     <header className="fixed top-0 w-full z-50 bg-white border-b border-zinc-300 dark:bg-zinc-950/80 dark:backdrop-blur-xl dark:border-white/5 transition-colors duration-300">
@@ -140,10 +126,10 @@ export default function Header() {
                     </div>
                     <div className="text-left">
                       <span className="block font-bold text-base text-zinc-900 dark:text-white leading-none">
-                        IBRD Menu
+                        IBRD
                       </span>
                       <span className="text-xs text-zinc-500 font-normal">
-                        Main Navigation
+                        Navegação Principal
                       </span>
                     </div>
                   </SheetTitle>
@@ -185,21 +171,23 @@ export default function Header() {
                       <Button
                         className={`w-full rounded-xl font-bold text-base gap-2 h-12 ${blackGradientBtnClasses}`}>
                         <User size={18} />
-                        Access Member Area
+                        Area de Membros
                       </Button>
                     </Link>
                   </SheetClose>
 
                   <div className="flex justify-center gap-6 pt-2">
                     <a
-                      href="#"
+                      href="https://www.instagram.com/ibrd_oficial"
+                      target="_blank"
                       className="text-zinc-400 hover:text-pink-600 transition-colors p-2">
-                      <Instagram size={22} />
+                      <SiInstagram size={22} />
                     </a>
                     <a
-                      href="#"
+                      href="https://www.whatsapp.com/channel/0029VaabZQW6buMF8knzA02K"
+                      target="_blank"
                       className="text-zinc-400 hover:text-green-500 transition-colors p-2">
-                      <MessageCircle size={22} />
+                      <SiWhatsapp size={22} />
                     </a>
                   </div>
                 </div>

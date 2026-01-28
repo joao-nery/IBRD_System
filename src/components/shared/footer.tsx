@@ -1,4 +1,4 @@
-import { MapPin, MessageCircle, Phone } from "lucide-react";
+import { MapPin } from "lucide-react";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import { SiInstagram, SiWhatsapp } from "@icons-pack/react-simple-icons";
@@ -35,6 +35,32 @@ export default function Footer() {
               Levando a palavra de Deus e transformando vidas no Parque das
               Acácias desde 2020.
             </p>
+
+            <div className="flex gap-3 mt-5">
+              <Link
+                href={"https://www.instagram.com/ibrd_oficial"}
+                target="_blank">
+                <Button
+                  size="icon"
+                  variant="outline"
+                  className="rounded-full border-zinc-300 dark:border-zinc-800 hover:bg-white dark:hover:bg-zinc-800 text-zinc-600 dark:text-zinc-400 bg-white dark:bg-transparent cursor-pointer">
+                  <SiInstagram color="white" size={18} />
+                </Button>
+              </Link>
+
+              <Link
+                href={
+                  "https://www.whatsapp.com/channel/0029VaabZQW6buMF8knzA02K"
+                }
+                target="_blank">
+                <Button
+                  size="icon"
+                  variant="outline"
+                  className="rounded-full border-zinc-300 dark:border-zinc-800 hover:bg-white dark:hover:bg-zinc-800 text-zinc-600 dark:text-zinc-400 bg-white dark:bg-transparent cursor-pointer">
+                  <SiWhatsapp color="white" size={18} />
+                </Button>
+              </Link>
+            </div>
           </div>
 
           {/* Links */}
@@ -43,17 +69,23 @@ export default function Footer() {
               Navegação
             </h4>
             <ul className="space-y-3 text-sm text-zinc-500 dark:text-zinc-400">
-              {["Início", "Quem Somos", "Ministérios", "Dízimos e Ofertas"].map(
-                (link) => (
-                  <li key={link}>
-                    <Link
-                      href="#"
-                      className="hover:text-black dark:hover:text-white transition-colors">
-                      {link}
-                    </Link>
-                  </li>
-                ),
-              )}
+              <li className="flex flex-col space-y-3">
+                <Link href="/" className="hover:underline">
+                  Início
+                </Link>
+                <Link href="/about" className="hover:underline">
+                  Sobre
+                </Link>
+                <Link href="/schedule" className="hover:underline">
+                  Programação
+                </Link>
+                <Link href="/ministries" className="hover:underline">
+                  Comunidade
+                </Link>
+                <Link href="/contacts" className="hover:underline">
+                  Contato
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -62,43 +94,17 @@ export default function Footer() {
             <h4 className="font-semibold text-zinc-900 dark:text-white mb-6">
               Contato
             </h4>
-            <ul className="space-y-4 text-sm text-zinc-500 dark:text-zinc-400 ">
+            <ul className="space-y-3 text-sm text-zinc-500 dark:text-zinc-400 ">
               <li className="flex items-start gap-3 flex-col">
                 <div className="flex gap-3">
                   <MapPin size={18} className="mt-0.5 shrink-0 text-zinc-400" />
-                  <span>
+                  <span className="leading-relaxed">
                     Rua Dois, 417
                     <br />
                     Parque das Acácias
                     <br />
                     Betim - MG
                   </span>
-                </div>
-
-                <div className="flex gap-3 mt-5">
-                  <Link
-                    href={"https://www.instagram.com/ibrd_oficial"}
-                    target="_blank">
-                    <Button
-                      size="icon"
-                      variant="outline"
-                      className="rounded-full border-zinc-300 dark:border-zinc-800 hover:bg-white dark:hover:bg-zinc-800 text-zinc-600 dark:text-zinc-400 bg-white dark:bg-transparent cursor-pointer">
-                      <SiInstagram size={18} />
-                    </Button>
-                  </Link>
-
-                  <Link
-                    href={
-                      "https://www.whatsapp.com/channel/0029VaabZQW6buMF8knzA02K"
-                    }
-                    target="_blank">
-                    <Button
-                      size="icon"
-                      variant="outline"
-                      className="rounded-full border-zinc-300 dark:border-zinc-800 hover:bg-white dark:hover:bg-zinc-800 text-zinc-600 dark:text-zinc-400 bg-white dark:bg-transparent cursor-pointer">
-                      <SiWhatsapp size={18} />
-                    </Button>
-                  </Link>
                 </div>
               </li>
             </ul>

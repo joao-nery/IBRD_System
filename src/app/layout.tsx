@@ -2,6 +2,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Metadata } from "next";
+import FloatingWhatsApp from "@/components/shared/floating-whatsapp";
 
 const poppinsFont = Poppins({
   weight: "500",
@@ -27,6 +28,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange>
           {children}
+          <FloatingWhatsApp />
         </ThemeProvider>
       </body>
     </html>

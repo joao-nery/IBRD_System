@@ -1,24 +1,85 @@
 "use client";
 
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   CalendarDays,
   Users,
   MapPin,
   ArrowRight,
-  QrCode,
   Radio,
   Heart,
+  Copy,
+  Check,
 } from "lucide-react";
 import { SiWhatsapp } from "@icons-pack/react-simple-icons";
 import Link from "next/link";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
+import { Toaster } from "@/components/ui/sonner";
 
 export default function HubPage() {
-  const addressEncoded = encodeURIComponent(
-    "Rua Dois, 417, Parque das Acácias, Betim - MG",
-  );
+  const pixKey = "16.443.519/0001-84";
+
+  // Função robusta que funciona em Mobile e Desktop (HTTP ou HTTPS)
+  const handleCopyPix = () => {
+    const showSuccess = () => {
+      toast.success("Chave Pix copiada!", {
+        description: "CNPJ copiado para a área de transferência.",
+        icon: <Check className="text-green-500" size={16} />,
+        duration: 3000,
+      });
+    };
+
+    const showError = () => {
+      toast.error("Erro ao copiar", {
+        description: "Por favor, copie a chave manualmente.",
+      });
+    };
+
+    // Tenta a API moderna primeiro (Funciona em HTTPS/Localhost Desktop)
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard
+        .writeText(pixKey)
+        .then(showSuccess)
+        .catch(() => {
+          // Se falhar (comum em mobile via IP local), tenta o fallback
+          fallbackCopy();
+        });
+    } else {
+      // Se a API não existir, vai direto pro fallback
+      fallbackCopy();
+    }
+
+    // Método Fallback (Funciona em Mobile antigo e HTTP)
+    function fallbackCopy() {
+      try {
+        const textArea = document.createElement("textarea");
+        textArea.value = pixKey;
+
+        // Garante que o elemento não seja visível, mas faça parte do DOM
+        textArea.style.position = "fixed";
+        textArea.style.left = "-9999px";
+        textArea.style.top = "0";
+        document.body.appendChild(textArea);
+
+        textArea.focus();
+        textArea.select();
+
+        const successful = document.execCommand("copy");
+        document.body.removeChild(textArea);
+
+        if (successful) {
+          showSuccess();
+        } else {
+          showError();
+        }
+      } catch (err) {
+        showError();
+      }
+    }
+  };
+
   return (
     // FUNDO COMPLEXO: Gradientes sutis para não ficar "branco opaco" no light mode
     <div className="min-h-screen bg-[#f0f2f5] dark:bg-[#0a0a0a] overflow-hidden relative flex flex-col items-center py-10 px-4">
@@ -29,12 +90,8 @@ export default function HubPage() {
       {/* --- CABEÇALHO COMPACTO --- */}
       <header className="text-center mb-8 relative z-10 animate-fade-in-up flex flex-col items-center">
         <div className="relative w-20 h-20 mb-4 rounded-[2rem] overflow-hidden border-2 border-white/50 dark:border-zinc-800/50 shadow-xl shadow-blue-900/5 dark:shadow-black/50 bg-zinc-100 dark:bg-zinc-800">
-          {/* Substitua pelo caminho real da sua logo */}
+          {/* Logo */}
           <Image src="/logo.jpg" alt="IBR" fill className="object-cover" />
-          {/* Fallback */}
-          <div className="absolute inset-0 flex items-center justify-center font-black text-xl text-zinc-400/20">
-            LOGO
-          </div>
         </div>
         <h1 className="text-2xl font-black tracking-tight text-zinc-900 dark:text-white">
           Olá, família!
@@ -47,7 +104,6 @@ export default function HubPage() {
       {/* --- BENTO GRID PRINCIPAL --- */}
       <main className="w-full max-w-md relative z-10 grid grid-cols-2 gap-3 animate-fade-in-up delay-100">
         {/* --- CARD 1 (Principal): Programação/Agenda --- */}
-        {/* Ocupa 2 colunas no topo */}
         <Link href="/schedule" className="col-span-2 group">
           <div className="relative overflow-hidden rounded-[2.5rem] p-6 min-h-[140px] flex flex-col justify-between text-white shadow-lg hover:scale-[1.01] transition-all duration-300 border border-white/10 dark:border-zinc-800/50 bg-gradient-to-br from-blue-600 to-purple-600 dark:from-blue-900 dark:to-purple-900">
             <div className="relative z-10 flex justify-between items-start">
@@ -72,8 +128,7 @@ export default function HubPage() {
                 className="group-hover:translate-x-1 transition-transform"
               />
             </p>
-
-            {/* Textura de fundo do card */}
+            {/* Textura de fundo */}
             <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay pointer-events-none" />
           </div>
         </Link>
@@ -113,7 +168,7 @@ export default function HubPage() {
           </div>
         </Link>
 
-        {/* --- CARD 4: Como Chegar (Full Width) --- */}
+        {/* --- CARD 4: Como Chegar --- */}
         <Link
           href={`https://www.google.com/maps/search/?api=1&query=Rua%20Dois%2C%20417%2C%20Parque%20das%20Ac%C3%A1cias%2C%20Betim%20-%20MG`}
           target="_blank"
@@ -136,46 +191,71 @@ export default function HubPage() {
           </div>
         </Link>
 
-        {/* --- CARD 5: QR CODE (Destaque de Contribuição) --- */}
+        {/* --- CARD 5: CONTRIBUIÇÃO (INTERATIVO COM SONNER) --- */}
         <div className="col-span-2 mt-2">
-          <div className="bg-zinc-900 dark:bg-zinc-800 rounded-[2.5rem] p-6 text-white flex items-center gap-6 shadow-xl relative overflow-hidden border border-zinc-800 dark:border-zinc-700">
-            {/* Background sutil */}
+          <div className="bg-zinc-900 dark:bg-zinc-800 rounded-[2.5rem] p-6 text-white flex flex-row items-center gap-5 shadow-xl relative overflow-hidden border border-zinc-800 dark:border-zinc-700">
+            {/* Background Texture */}
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 pointer-events-none" />
 
-            {/* Placeholder do QR Code - Substitua a div pelo seu componente de imagem real */}
-            <div className="relative z-10 w-28 h-28 bg-white rounded-2xl flex-shrink-0 flex items-center justify-center p-2 shadow-sm">
-              {/* Coloque sua imagem de QR Code aqui */}
-              {/* <Image src="/seu-qrcode.png" fill alt="QR Code Pix" /> */}
-              <QrCode size={60} className="text-zinc-900 opacity-20" />
-              <p className="absolute text-xs font-bold text-zinc-400 text-center px-2">
-                QR CODE AQUI
-              </p>
+            {/* QR Code Otimizado */}
+            <div className="relative z-10 w-24 h-24 sm:w-28 sm:h-28 bg-white rounded-2xl flex-shrink-0 flex items-center justify-center p-2 shadow-sm">
+              <div className="relative w-full h-full">
+                <Image
+                  src="/qrcode.png"
+                  alt="QR Code Pix"
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 768px) 100vw, 150px"
+                />
+              </div>
             </div>
 
-            <div className="relative z-10">
-              <h3 className="text-xl font-bold mb-1 flex items-center gap-2">
+            {/* Texto e Ação */}
+            <div className="relative z-10 flex flex-col justify-center min-w-0">
+              <h3 className="text-lg sm:text-xl font-bold mb-1 flex items-center gap-2">
                 Contribua{" "}
-                <Heart size={18} className="text-red-500 fill-red-500" />
+                <Heart
+                  size={18}
+                  className="text-red-500 fill-red-500 animate-pulse"
+                />
               </h3>
-              <p className="text-zinc-400 text-sm mb-3 leading-tight">
-                Escaneie para dizimar ou ofertar via Pix.
+              <p className="text-zinc-400 text-xs sm:text-sm mb-3 leading-tight font-medium">
+                Escaneie ou toque na chave abaixo.
               </p>
-              <Badge className="bg-zinc-700 text-zinc-200 hover:bg-zinc-600 cursor-copy">
-                Chave Pix: ibrd@gmail.com
+
+              {/* Botão de Copiar */}
+              <Badge
+                onClick={handleCopyPix}
+                className="bg-zinc-700/80 hover:bg-zinc-600 text-zinc-100 px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl cursor-pointer transition-all active:scale-95 group w-fit flex items-center gap-2 select-none border border-zinc-600/50">
+                <Image
+                  src="/santanderbank-icon 1.svg"
+                  alt="Ícone do Santander"
+                  width={16}
+                  height={16}
+                />
+                <span className="truncate text-xs sm:text-sm font-mono tracking-wide max-w-[140px] sm:max-w-none">
+                  {pixKey}
+                </span>
+                <Copy
+                  size={14}
+                  className="text-zinc-400 group-hover:text-white transition-colors"
+                />
               </Badge>
             </div>
           </div>
         </div>
       </main>
 
-      {/* --- FOOTER --- */}
+      {/* --- FOOTER (Link para Middleware) --- */}
       <footer className="mt-10 relative z-10 animate-fade-in-up delay-200">
         <Button
           variant="link"
           className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white text-sm"
           asChild>
-          <Link href="/">Ir para o site completo</Link>
+          <Link href="/?pref=desktop">Ir para o site completo</Link>
         </Button>
+
+        <Toaster />
       </footer>
     </div>
   );

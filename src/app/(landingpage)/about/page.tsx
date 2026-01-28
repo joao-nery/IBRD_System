@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Heart, Target, Lightbulb, ArrowRight, Clock } from "lucide-react";
 import Link from "next/link";
+import { SiInstagram } from "@icons-pack/react-simple-icons";
 
 export default function AboutPage() {
   return (
@@ -43,7 +44,7 @@ export default function AboutPage() {
 
             <div className="relative z-10 p-8 md:p-12 space-y-4 w-full">
               <div className="inline-flex items-center gap-2 text-zinc-300 text-sm font-bold uppercase tracking-widest bg-white/10 backdrop-blur-md px-3 py-1 rounded-full w-fit">
-                <Clock size={14} /> Desde 2020
+                <Clock size={14} /> Desde 2010
               </div>
               <h3 className="text-3xl md:text-4xl font-bold text-white">
                 O Começo de Tudo
@@ -169,10 +170,13 @@ export default function AboutPage() {
                   discipulado pessoal.
                 </p>
                 <Button
-                  className="rounded-full px-8 h-12 text-base bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+                  className="rounded-full px-10 h-14 text-base bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
                   asChild>
-                  <Link href="https://instagram.com" target="_blank">
-                    Siga no Instagram <ArrowRight className="ml-2 w-4 h-4" />
+                  <Link
+                    href="https://www.instagram.com/mateusdnery/"
+                    target="_blank">
+                    <SiInstagram />
+                    Siga no Instagram <ArrowRight className="ml-2 w-4 h-6" />
                   </Link>
                 </Button>
               </div>
